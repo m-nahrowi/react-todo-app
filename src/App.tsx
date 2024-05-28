@@ -23,7 +23,7 @@ function App() {
 
   ])
 
-  console.log(todos);
+  // console.log(todos);
 
   return (
     <>
