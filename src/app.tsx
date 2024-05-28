@@ -11,17 +11,17 @@ export const App = component$(() => {
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://qwik.builder.io" target="_blank">
-          <img src={qwikLogo} class="logo qwik" alt="Qwik logo" />
+          <img src={qwikLogo} className="logo qwik" alt="Qwik logo" />
         </a>
       </div>
       <h1>Vite + Qwik</h1>
-      <div class="card">
-        <button onClick$={() => count.value++}>count is {count.value}</button>
+      <div className="card">
+        <button onClick={() => count.value++}>count is {count.value}</button>
       </div>
-      <p class="read-the-docs">
+      <p className="read-the-docs">
         Click on the Vite and Qwik logos to learn more
       </p>
     </>
