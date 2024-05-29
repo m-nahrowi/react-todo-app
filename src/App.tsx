@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import Todos from './components/Todos'
 import TodoForm from './components/TodoForm';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
+
+// membuat sebuah content
+export const TodoContent = createContext()
 
 function App() {
 
@@ -27,7 +30,7 @@ function App() {
   ])
 
   // Definisikan toggleCompleted
-  const toggleCompleted = (todoId:number) => {
+  const toggleCompleted = (todoId: number) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === todoId) {
         todo.completed = !todo.completed
@@ -37,7 +40,7 @@ function App() {
     setTodos(updatedTodos)
   };
 
-  const deleteTodo = (todoId:number) => {
+  const deleteTodo = (todoId: number) => {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId)
     setTodos(updatedTodos);
   };
@@ -61,18 +64,20 @@ function App() {
 
   return (
     <>
-      <div style={styles.container}>
-        <h1 style={styles.title}>
-          My Todo List
-        </h1>
-        {/* Teruskan function toggleCompleted ke component Todos */}
-        <TodoForm addTodo={addTodo}/>
-        <Todos 
-        todos={todos} 
-        toggleCompleted={toggleCompleted} 
-        deleteTodo={deleteTodo}
-        />
-      </div>
+      <TodoContent.Provider value={{ toggleCompleted, deleteTodo }} >
+        <div style={styles.container}>
+          <h1 style={styles.title}>
+            My Todo List
+          </h1>
+          {/* Teruskan function toggleCompleted ke component Todos */}
+          <TodoForm addTodo={addTodo} />
+          <Todos
+            todos={todos}
+            // toggleCompleted={toggleCompleted}
+            // deleteTodo={deleteTodo}
+          />
+        </div>
+      </TodoContent.Provider>
     </>
   )
 }

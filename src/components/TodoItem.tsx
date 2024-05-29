@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import { TodoContent } from "../App";
 
 
-export const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
+/*toggleCompleted, deleteTodo*/ // Hapus toggleCompleted dan deleteTodo dari props
+export const TodoItem = ({ todo }) => {
+    
+    const {toggleCompleted, deleteTodo} = useContext(TodoContent)
+
     const getTodoTitleStyle = () => {
         if (todo.completed === true) {
             return { textDecoration: 'line-through' }
