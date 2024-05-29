@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Todos from './components/Todos'
+import TodoForm from './components/TodoForm';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -40,7 +41,23 @@ function App() {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId)
     setTodos(updatedTodos);
   };
-  // console.log(todos);
+
+  // Definisikan function addTodo
+  const addTodo = (todoTitle) => {
+    if (todoTitle === '') {
+      return
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: todoTitle,
+      completed: false,
+    }
+
+    const updatedTodos = todos.concat(newTodo)
+    setTodos(updatedTodos)
+
+  }
 
   return (
     <>
@@ -49,6 +66,7 @@ function App() {
           My Todo List
         </h1>
         {/* Teruskan function toggleCompleted ke component Todos */}
+        <TodoForm addTodo={addTodo}/>
         <Todos 
         todos={todos} 
         toggleCompleted={toggleCompleted} 
