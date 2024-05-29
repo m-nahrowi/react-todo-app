@@ -5,6 +5,7 @@ import Todos from './components/Todos'
 // import './App.css'
 
 function App() {
+
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -24,29 +25,40 @@ function App() {
 
   ])
 
-  // console.log(todos);
-
-  return (
-    <>
-      <div style={styles.container}>
-        <h1 style={styles.title}>
-          My Todo List
-        </h1>
-        {/* map */}
-        <Todos todos={todos}/>
-      </div>
-    </>
-  )
-}
-
-const styles = {
-  container: {
-    textAlign: 'center',
-    padding: '12px',
-  },
-  title: {
-    fontSize: '36px'
+  // Definisikan toggleCompleted
+  const toggleCompleted = (todoId) => {
+    const updatedTodos = todos.map((todo)=> {
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
   }
-}
+    // console.log(todos);
 
-export default App
+    return (
+      <>
+        <div style={styles.container}>
+          <h1 style={styles.title}>
+            My Todo List
+          </h1>
+          {/* Teruskan function toggleCompleted ke component Todos */}
+          <Todos todos={todos} toggleCompleted= {toggleCompleted}/>
+        </div>
+      </>
+    )
+  }
+
+  const styles = {
+    container: {
+      textAlign: 'center',
+      padding: '12px',
+    },
+    title: {
+      fontSize: '36px'
+    }
+  }
+
+
+  export default App
