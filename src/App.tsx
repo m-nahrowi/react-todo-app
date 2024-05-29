@@ -26,39 +26,48 @@ function App() {
   ])
 
   // Definisikan toggleCompleted
-  const toggleCompleted = (todoId) => {
-    const updatedTodos = todos.map((todo)=> {
+  const toggleCompleted = (todoId:number) => {
+    const updatedTodos = todos.map((todo) => {
       if (todo.id === todoId) {
         todo.completed = !todo.completed
       }
       return todo
     })
     setTodos(updatedTodos)
+  };
+
+  const deleteTodo = (todoId:number) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId)
+    setTodos(updatedTodos);
+  };
+  // console.log(todos);
+
+  return (
+    <>
+      <div style={styles.container}>
+        <h1 style={styles.title}>
+          My Todo List
+        </h1>
+        {/* Teruskan function toggleCompleted ke component Todos */}
+        <Todos 
+        todos={todos} 
+        toggleCompleted={toggleCompleted} 
+        deleteTodo={deleteTodo}
+        />
+      </div>
+    </>
+  )
+}
+
+const styles = {
+  container: {
+    textAlign: 'center',
+    padding: '12px',
+  },
+  title: {
+    fontSize: '36px'
   }
-    // console.log(todos);
-
-    return (
-      <>
-        <div style={styles.container}>
-          <h1 style={styles.title}>
-            My Todo List
-          </h1>
-          {/* Teruskan function toggleCompleted ke component Todos */}
-          <Todos todos={todos} toggleCompleted= {toggleCompleted}/>
-        </div>
-      </>
-    )
-  }
-
-  const styles = {
-    container: {
-      textAlign: 'center',
-      padding: '12px',
-    },
-    title: {
-      fontSize: '36px'
-    }
-  }
+}
 
 
-  export default App
+export default App
