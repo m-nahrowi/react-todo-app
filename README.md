@@ -28,3 +28,6 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# npm run dev
+![image](https://github.com/m-nahrowi/react-todo-app/assets/86625224/b6da986a-6a92-4a43-85e0-38b9d05129c5)
+
