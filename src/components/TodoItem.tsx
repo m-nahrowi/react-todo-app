@@ -1,7 +1,4 @@
-import React from "react";
-
-
-export const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
+export const TodoItem = ({ todo, toggleCompleted, deleteTodo }: any) => {
     const getTodoTitleStyle = () => {
         if (todo.completed === true) {
             return { textDecoration: 'line-through' }

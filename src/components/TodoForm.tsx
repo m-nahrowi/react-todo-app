@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = ({ addTodo }: any) => {
 
     // Definisikan state "title"
     const [title, setTitle] = useState('')
 
     // Definisikan function handlesubmit
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault()
         addTodo(title)
         setTitle('') //Reset title-nya
     }
 
     // Definisikan function "handleChangeTitle"
-    const handleChangeTitle = (event) => {
+    const handleChangeTitle = (event : any) => {
         setTitle(event.target.value)
     }
     // Periksa apakah function "handleChangeTitle" berfungsi

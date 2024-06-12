@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Todos from './components/Todos'
 import TodoForm from './components/TodoForm';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+
 
 function App() {
 
@@ -42,8 +40,8 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  // Definisikan function addTodo
-  const addTodo = (todoTitle) => {
+  // Definisikan function addTodo, untuk menambahkan todo
+  const addTodo = (todoTitle:any) => {
     if (todoTitle === '') {
       return
     }
@@ -61,7 +59,7 @@ function App() {
 
   return (
     <>
-      <div style={styles.container}>
+      <div style={styles.container as React.CSSProperties}>
         <h1 style={styles.title}>
           My Todo List
         </h1>
